@@ -1,0 +1,75 @@
+<!-- =========================
+FILE: media.html (JavaScript-powered)
+========================== -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Annabelle Fasuba — Media</title>
+  <meta name="description" content="Videos and highlights of Annabelle Fasuba — race highlights, interviews and training.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header / Nav -->
+  <header class="site-header">
+    <div class="container row between center">
+      <a class="brand" href="index.html"><span class="brand-badge" aria-hidden="true">AF</span> <span>Annabelle Fasuba</span></a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#achievements">Achievements</a>
+        <a href="index.html#pbs">PBs</a>
+        <a href="records.html">Records</a>
+        <a href="index.html#schedule">Schedule</a>
+        <a href="media.html" aria-current="page">Media</a>
+        <a href="index.html#contact" class="btn btn-primary btn-sm">Book Enquiry</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu" id="navToggle" aria-expanded="false" aria-controls="drawer">☰</button>
+    </div>
+  </header>
+
+  <!-- Mobile drawer -->
+  <nav class="drawer" id="drawer" aria-label="Mobile">
+    <a href="index.html">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#achievements">Achievements</a>
+    <a href="index.html#pbs">PBs</a>
+    <a href="records.html">Records</a>
+    <a href="index.html#schedule">Schedule</a>
+    <a href="media.html" aria-current="page">Media</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+
+  <!-- Media Section -->
+  <main class="section" id="media" aria-labelledby="media-title">
+    <div class="container">
+      <h1 id="media-title" class="center">Media</h1>
+      <p class="muted center maxw">Highlights, interviews and galleries.</p>
+      <div class="grid three gap-lg" id="mediaGrid">
+        <!-- Videos will be injected here by app.js -->
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container row between center">
+      <div class="muted">© <span id="year">2025</span> Annabelle Fasuba. All rights reserved.</div>
+      <div class="muted">Site by Olusoji Fasuba</div>
+    </div>
+    <p style="margin-top:10px; text-align:center;">
+      <a href="https://jigsaw.w3.org/css-validator/check/referer">
+        <img style="border:0;width:88px;height:31px"
+             src="https://jigsaw.w3.org/css-validator/images/vcss"
+             alt="Valid CSS!">
+      </a>
+    </p>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

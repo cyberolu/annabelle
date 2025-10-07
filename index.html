@@ -1,0 +1,214 @@
+<!-- =========================
+FILE: index.html (Netlify form enabled)
+========================== -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Annabelle Fasuba — Official Site</title>
+  <meta name="description" content="Official website of sprinter Annabelle Fasuba — results, media, schedule and enquiries.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header / Nav -->
+  <header class="site-header">
+    <div class="container row between center">
+      <a class="brand" href="index.html"><span class="brand-badge" aria-hidden="true">AF</span> <span>Annabelle Fasuba</span></a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="#about">About</a>
+        <a href="achievements.html">Achievements</a>
+        <a href="#pbs">PBs</a>
+        <a href="records.html">Records</a>
+        <a href="#schedule">Schedule</a>
+        <a href="media.html">Media</a>
+        <a href="#contact" class="btn btn-primary btn-sm">Book Enquiry</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu" id="navToggle" aria-expanded="false" aria-controls="drawer">☰</button>
+    </div>
+  </header>
+
+  <!-- Mobile drawer -->
+  <nav class="drawer" id="drawer" aria-label="Mobile">
+    <a href="index.html">Home</a>
+    <a href="#about">About</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#pbs">PBs</a>
+    <a href="records.html">Records</a>
+    <a href="#schedule">Schedule</a>
+    <a href="media.html">Media</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Hero -->
+  <main id="home" class="hero">
+    <div class="container grid two">
+      <div>
+        <p class="eyebrow">Sprinter • 60m • 100m • 200m</p>
+        <h1>Annabelle Fasuba</h1>
+        <p class="lead">Rising British sprint talent. National U15 60m champion (2025). Focused on performance, discipline and inspiring the next generation.</p>
+        <div class="row gap" role="group" aria-label="Primary actions">
+          <a class="btn btn-primary" href="media.html">Watch Highlights</a>
+          <a class="btn" href="#about">Learn More</a>
+        </div>
+
+        <!-- Accessible stats label -->
+        <span id="pb-label" class="sr-only">Personal bests</span>
+        <div class="stats" role="group" aria-labelledby="pb-label">
+          <div class="stat" aria-live="polite"><div class="stat-val">7.53</div><div class="stat-label">60m (indoor)</div></div>
+          <div class="stat"><div class="stat-val">11.51</div><div class="stat-label">100m</div></div>
+          <div class="stat"><div class="stat-val">23.72</div><div class="stat-label">200m</div></div>
+        </div>
+      </div>
+      <div class="hero-media">
+        <img src="image/annabelle.jpg" alt="Annabelle Fasuba sprinting on the track" loading="lazy">
+        <div class="badge">National Champion • U15 60m • 2025</div>
+      </div>
+    </div>
+  </main>
+
+  <!-- About -->
+<section class="section" id="about" aria-labelledby="about-title">
+  <div class="container">
+    <h2 id="about-title" class="center">About Annabelle</h2>
+    <p class="muted center maxw">Profile, values and pathway.</p>
+    <div class="grid two gap-lg">
+      <article class="card p-lg">
+        <h3>Biography</h3>
+        <p>
+          Annabelle Fasuba is a <span id="age"></span>-year-old British sprinter specialising in 60m, 100m and 200m. 
+          In 2025, she became the national U15 champion across all three events—winning the indoor 60m in 7.53s, 
+          the outdoor 100m in 11.51s (breaking the previous record of 11.56s), and equalling the U15 national 200m 
+          record with a time of 23.72s. She also holds multiple club records and currently ranks number one in the UK 
+          U15 category for both the 100m and 200m.
+        </p>
+        <p>
+          Known for her focus, humility and joyful approach to competition, Annabelle combines performance-led training 
+          with strong technical discipline. Her rise in athletics has been marked by determination, speed, and a love 
+          for racing at the highest levels.
+        </p>
+        <ul class="bullets mt">
+          <li>National U15 champion (60m, 100m, 200m) in 2025.</li>
+          <li>Record-breaking 100m time: 11.51s (UK U15 record).</li>
+          <li>Equalled the UK U15 200m record with 23.72s.</li>
+          <li>Ranked UK #1 U15 in both 100m and 200m.</li>
+          <li>2025 focus: outdoor season improvements & national representation.</li>
+        </ul>
+      </article>
+      <aside class="card p-lg" aria-label="Quick facts">
+        <h3>Quick Facts</h3>
+        <div class="facts">
+          <div><span class="muted">Age:</span> <span id="age-facts"></span></div>
+          <div><span class="muted">Events:</span> 60m, 100m, 200m</div>
+          <div><span class="muted">Coach:</span> Neil Edwards</div>
+          <div><span class="muted">Club:</span> <a href="https://plymouthac.co.uk/" target="_blank" rel="noopener">City of Plymouth AC</a></div>
+
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+  <!--
+<section id="achievements">
+  <h2>Highlights</h2>
+  <ul id="highlightList"></ul>
+</section>
+-->
+
+
+  <!-- PBs -->
+  <section class="section" id="pbs" aria-labelledby="pbs-title">
+    <div class="container">
+      <h2 id="pbs-title" class="center">Personal Bests</h2>
+      <p class="muted center maxw">Planned: auto-pull from Power of 10 / OpenTrack.</p>
+      <div class="grid three gap-lg" id="pbsGrid"></div>
+    </div>
+  </section>
+
+  <!-- Schedule -->
+  <section class="section alt" id="schedule" aria-labelledby="schedule-title">
+    <div class="container">
+      <h2 id="schedule-title" class="center">Race Schedule</h2>
+      <p class="muted center maxw">Upcoming fixtures and appearances.</p>
+      <div class="grid two gap-lg" id="scheduleGrid"></div>
+    </div>
+  </section>
+
+  <!-- Media teaser -->
+  <section class="section" id="media" aria-labelledby="media-title">
+    <div class="container">
+      <h2 id="media-title" class="center">Media</h2>
+      <p class="muted center maxw">See the full gallery on the <a href="media.html">Media page</a>.</p>
+      <div class="grid three gap-lg" id="mediaGrid"></div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section" id="contact" aria-labelledby="contact-title">
+    <div class="container grid two gap-lg">
+      <div class="card p-lg">
+        <h2 id="contact-title">Contact & Bookings</h2>
+
+        <!-- Netlify-ready form -->
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you" class="form">
+          <input type="hidden" name="form-name" value="contact">
+
+          <!-- Honeypot -->
+          <p class="sr-only" hidden>
+            <label>Don’t fill this out if you’re human:
+              <input name="bot-field">
+            </label>
+          </p>
+
+          <label class="sr-only" for="name">Full name</label>
+          <input id="name" name="name" type="text" placeholder="Full name" required>
+
+          <label class="sr-only" for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Email" required>
+
+          <label class="sr-only" for="org">Organisation</label>
+          <input id="org" name="org" type="text" placeholder="Organisation (optional)">
+
+          <label class="sr-only" for="message">Your message</label>
+          <textarea id="message" name="message" rows="6" placeholder="Your message" required></textarea>
+
+          <div class="right">
+            <button class="btn btn-primary" type="submit">Send Enquiry</button>
+          </div>
+        </form>
+      </div>
+
+      <aside class="card p-lg" aria-label="Direct contact">
+        <h3>Direct</h3>
+        <p><strong>Email:</strong> <a href="mailto:team@annabellefasuba.com">team@annabellefasuba.com</a></p>
+        <p><strong>Phone:</strong> +44 (0) ——— ————</p>
+        <p><strong>Location:</strong> United Kingdom</p>
+        <div class="social row gap mt">
+          <a href="#" aria-label="Instagram" class="chip">Instagram</a>
+          <a href="#" aria-label="Twitter" class="chip">Twitter/X</a>
+          <a href="#" aria-label="YouTube" class="chip">YouTube</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container row between center">
+      <div class="muted">© <span id="year">2025</span> Annabelle Fasuba. All rights reserved.</div>
+      <div class="muted">Site by Olusoji Fasuba</div>
+    </div>
+    <p style="margin-top:10px; text-align:center;">
+      <a href="https://jigsaw.w3.org/css-validator/check/referer">
+        <img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
+      </a>
+    </p>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
