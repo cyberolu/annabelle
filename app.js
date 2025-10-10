@@ -94,11 +94,8 @@ const records = [
 
 // Schedule
 const schedule = [
-  { date: '29 Dec 2024', name: "Sutcliffe Indoor 60's (60m wins)", venue: 'Eltham' },
-  { date: '13 Jul 2024', name: "ESAA English Schools' Championships (100m – 12.03s win)", venue: 'Birmingham' },
-  { date: '12 Jul 2025', name: "ESAA English Schools' Championships (200m – 23.72s win)", venue: 'Birmingham' },
-  { date: '30 Aug 2025', name: 'Be Fit Today Track Academy (100m – 11.51s PB, 200m – 23.47w)', venue: 'Lee Valley' },
-  { date: '08 Feb 2025', name: 'England Athletics U15/U17/U20 Indoor Championships (60m – 7.53s PB)', venue: 'Sheffield' },
+  { date: '28 Dec 2025', name: "Sutcliffe Indoor 60's", venue: 'Eltham' },
+  { date: '10 Jan 2026', name: "SEAA Championships 60M", venue: 'Lee Valley' },
 ];
 
 // Media (only selected race highlights)
