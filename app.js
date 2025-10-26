@@ -2,12 +2,18 @@
 // FILE: app.js
 // =========================
 
+console.log("✅ app.js loaded");
+
 // Helper: create element from HTML string
-function el(html){
+function el(html) {
   const t = document.createElement('template');
   t.innerHTML = html.trim();
   return t.content.firstElementChild;
 }
+
+// =========================
+// DATA
+// =========================
 
 // Achievements (grouped by year)
 const achievements = [
@@ -58,10 +64,10 @@ const achievements = [
 const pbs = [
   { event: '60m (Indoor)', time: '7.53', note: 'Sheffield • England Athletics U15/U17/U20 Indoor Championships • 8 Feb 2025' },
   { event: '100m', time: '11.51', note: 'Lee Valley • Be Fit Today Track Academy • 30 Aug 2025' },
-  { event: '200m', time: '23.72', note: 'Birmingham • ESAA English Schools Championships • 12 Jul 2025' },
+  { event: '200m', time: '23.72', note: 'Birmingham • ESAA English Schools Championships • 12 Jul 2025' }
 ];
 
-/// Records (Club / National / Other)
+// Records
 const records = [
   {
     category: 'Club Records (2025)',
@@ -95,123 +101,140 @@ const records = [
 // Schedule
 const schedule = [
   { date: '28 Dec 2025', name: "Sutcliffe Indoor 60's", venue: 'Eltham' },
-  { date: '10 Jan 2026', name: "SEAA Championships 60M", venue: 'Lee Valley' },
+  { date: '10 Jan 2026', name: "SEAA Championships 60M", venue: 'Lee Valley' }
 ];
 
-// Media (only selected race highlights)
+// Media
 const media = [
   {
     type: 'youtube',
-    src: 'https://www.youtube.com/embed/PR2q5x-xVF4',  // 100m national record YouTube
+    src: 'https://www.youtube.com/embed/PR2q5x-xVF4',
     title: '🏆 National Record – 100m',
     meta: '11.51s • BFTTA • Lee Valley • 30 Aug 2025',
     featured: true
   },
   {
     type: 'youtube',
-    src: 'https://www.youtube.com/embed/VHFKR3NoPo4',  // 60m video YouTube
+    src: 'https://www.youtube.com/embed/VHFKR3NoPo4',
     title: 'Race Highlights – 60m',
     meta: 'England Athletics • Sheffield • 8 Feb 2025'
   }
 ];
 
-// RENDERERS
-function renderAchievements(){
+// =========================
+// RENDER FUNCTIONS
+// =========================
+
+function renderAchievements() {
   const root = document.getElementById('achievementsGrid');
-  if(!root) return;
-  achievements.forEach(y=>{
-    const yearBlock = el(
-      `<div class="card-item">
-         <div class="card-body">
-           <div class="card-title" style="font-size:1.2rem;font-weight:800;margin-bottom:10px;">${y.year}</div>
-         </div>
-       </div>`
-    );
-    y.records.forEach(r=>{
-      yearBlock.querySelector('.card-body').appendChild(el(
-        `<div style="margin-bottom:10px;">
-           <div class="muted" style="font-size:.85rem;">${r.title}</div>
-           <div class="card-meta">${r.detail}</div>
-         </div>`
-      ));4
-    });
-    root.appendChild(yearBlock);
-  });
-}
+  if (!root) return;
 
-function renderPBs(){
-  const root = document.getElementById('pbsGrid');
-  if(!root) return;
-  pbs.forEach(p=>{
-    root.appendChild(el(
-      `<article class="card-item">
-         <div class="card-body">
-           <div class="card-title">${p.event}</div>
-           <div class="card-title" style="font-size:1.8rem;font-weight:900;margin-top:6px;">${p.time}</div>
-           <div class="card-meta">${p.note}</div>
-         </div>
-       </article>`
-    ));
-  });
-}
+  achievements.forEach(section => {
+    const block = el(`
+      <div class="card-item">
+        <div class="card-body">
+          <div class="card-title" style="font-size:1.2rem;font-weight:800;margin-bottom:10px;">
+            Achievements ${section.year}
+          </div>
+        </div>
+      </div>
+    `);
 
-function renderRecords(){
-  const root = document.getElementById('recordsGrid');
-  if(!root) return;
-  records.forEach(cat=>{
-    const block = el(
-      `<div class="card-item">
-         <div class="card-body">
-           <div class="card-title" style="font-size:1.2rem;font-weight:800;margin-bottom:10px;">${cat.category}</div>
-         </div>
-       </div>`
-    );
-    cat.items.forEach(r=>{
-      block.querySelector('.card-body').appendChild(el(
-        `<div style="margin-bottom:10px;">
-           <div class="muted" style="font-size:.85rem;">${r.title}</div>
-           <div class="card-meta">${r.detail}</div>
-         </div>`
-      ));
+    section.records.forEach(record => {
+      block.querySelector('.card-body').appendChild(el(`
+        <div style="margin-bottom:10px;">
+          <div class="muted" style="font-size:.85rem;">${record.title}</div>
+          <div class="card-meta">${record.detail}</div>
+        </div>
+      `));
     });
+
     root.appendChild(block);
   });
 }
 
-function renderSchedule(){
-  const root = document.getElementById('scheduleGrid');
-  if(!root) return;
-  schedule.forEach(e=>{
-    root.appendChild(el(
-      `<article class="card-item">
-         <div class="card-body">
-           <div class="muted" style="text-transform:uppercase;letter-spacing:.12em;font-size:.75rem;">${e.date}</div>
-           <div class="card-title mt">${e.name}</div>
-           <div class="card-meta">${e.venue}</div>
-         </div>
-       </article>`
-    ));
+function renderPBs() {
+  const root = document.getElementById('pbsGrid');
+  if (!root) return;
+
+  pbs.forEach(pb => {
+    root.appendChild(el(`
+      <article class="card-item">
+        <div class="card-body">
+          <div class="card-title">${pb.event}</div>
+          <div class="card-meta">${pb.time}s</div>
+          <div class="muted" style="font-size:.85rem;">${pb.note}</div>
+        </div>
+      </article>
+    `));
   });
 }
 
-function renderMedia(){
-  const root = document.getElementById('mediaGrid');
-  if(!root) return;
+function renderRecords() {
+  const root = document.getElementById('recordsGrid');
+  if (!root) return;
 
-  // Optional: show featured ones first
+  records.forEach(cat => {
+    const block = el(`
+      <div class="card-item">
+        <div class="card-body">
+          <div class="card-title" style="font-size:1.2rem;font-weight:800;margin-bottom:10px;">
+            ${cat.category}
+          </div>
+        </div>
+      </div>
+    `);
+
+    cat.items.forEach(r => {
+      block.querySelector('.card-body').appendChild(el(`
+        <div style="margin-bottom:10px;">
+          <div class="muted" style="font-size:.85rem;">${r.title}</div>
+          <div class="card-meta">${r.detail}</div>
+        </div>
+      `));
+    });
+
+    root.appendChild(block);
+  });
+}
+
+function renderSchedule() {
+  const root = document.getElementById('scheduleGrid');
+  if (!root) return;
+
+  schedule.forEach(e => {
+    root.appendChild(el(`
+      <article class="card-item">
+        <div class="card-body">
+          <div class="muted" style="text-transform:uppercase;letter-spacing:.12em;font-size:.75rem;">${e.date}</div>
+          <div class="card-title mt">${e.name}</div>
+          <div class="card-meta">${e.venue}</div>
+        </div>
+      </article>
+    `));
+  });
+}
+
+function renderMedia() {
+  const root = document.getElementById('mediaGrid');
+  if (!root) return;
+
   const sorted = [...media].sort((a, b) => (b.featured === true) - (a.featured === true));
 
   sorted.forEach(m => {
     const badge = m.featured ? `<div class="media-badge">National Record</div>` : '';
-    let frameHtml;
+    let frameHtml = '';
 
     if (m.type === 'youtube') {
-      // Convert to embed URL if it's a short youtu.be or normal watch URL
       let embedUrl = m.src;
+
+      // Normalise any YouTube link
       if (m.src.includes('youtu.be/')) {
         embedUrl = 'https://www.youtube.com/embed/' + m.src.split('youtu.be/')[1];
       } else if (m.src.includes('watch?v=')) {
         embedUrl = 'https://www.youtube.com/embed/' + m.src.split('watch?v=')[1];
+      } else if (m.src.includes('youtube-nocookie.com')) {
+        embedUrl = m.src.replace('youtube-nocookie.com', 'youtube.com');
       }
 
       frameHtml = `
@@ -221,53 +244,59 @@ function renderMedia(){
             width="560"
             height="315"
             src="${embedUrl}"
-            title="YouTube video player"
+            title="${m.title}"
             frameborder="0"
+            loading="lazy"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
           </iframe>
-        </div>`;
+        </div>
+      `;
     } else {
       frameHtml = `
         <div class="media-frame">
           ${badge}
           <video controls preload="metadata" src="${m.src}" loading="lazy"></video>
-        </div>`;
+        </div>
+      `;
     }
 
-    root.appendChild(el(
-      `<article class="card-item">
-         ${frameHtml}
-         <div class="card-body">
-           <div class="card-title">${m.title}</div>
-           <div class="card-meta">${m.meta || ''}</div>
-         </div>
-       </article>`
-    ));
+    root.appendChild(el(`
+      <article class="card-item">
+        ${frameHtml}
+        <div class="card-body">
+          <div class="card-title">${m.title}</div>
+          <div class="card-meta">${m.meta || ''}</div>
+        </div>
+      </article>
+    `));
   });
 }
 
-// UI: mobile nav drawer toggle
-function setupNav(){
+// =========================
+// NAV + INIT
+// =========================
+
+function setupNav() {
   const navToggle = document.getElementById('navToggle');
   const drawer = document.getElementById('drawer');
-  if(!navToggle || !drawer) return;
-  navToggle.addEventListener('click', ()=>{
+  if (!navToggle || !drawer) return;
+
+  navToggle.addEventListener('click', () => {
     const open = drawer.classList.toggle('open');
     navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
-  drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
     drawer.classList.remove('open');
-    navToggle.setAttribute('aria-expanded','false');
+    navToggle.setAttribute('aria-expanded', 'false');
   }));
 }
 
-// Initialise on DOM ready
-function boot(){
+function boot() {
   const y = document.getElementById('year');
-  if(y) y.textContent = new Date().getFullYear();
+  if (y) y.textContent = new Date().getFullYear();
 
-  // Age calculation
   const dob = new Date('2011-06-28');
   const today = new Date();
   let age = today.getFullYear() - dob.getFullYear();
