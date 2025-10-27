@@ -106,6 +106,12 @@ const schedule = [
 
 // Media
 const media = [
+   {
+    type: 'youtube',
+    src: 'https://www.youtube.com/embed/lp2PjZSBUw4',
+    title: '🏁 Annabelle’s First Ever 60m Race',
+    meta: '7.61s & 7.65s • Eltham • Dec 2023 • First Indoor Win (U23 Category)'
+  },
   {
     type: 'youtube',
     src: 'https://www.youtube.com/embed/PR2q5x-xVF4',
@@ -113,6 +119,20 @@ const media = [
     meta: '11.51s • BFTTA • Lee Valley • 30 Aug 2025',
     featured: true
   },
+  {
+    type: 'youtube',
+    src: 'https://www.youtube.com/embed/Hu5PfnNB5k4',
+    title: '🏆 English Schools Junior 200m Record',
+    meta: '23.72s • Birmingham • English Schools Championships • 12 Jul 2025 • Equals U15 All-Time Record',
+    featured: true
+  },
+  {
+  type: 'youtube',
+  src: 'https://www.youtube.com/embed/KUoBxXxPH5s',
+  title: '🏆 National U15 100m Champion',
+  meta: '11.72s • Birmingham • 9 Aug 2025 • Championship Record',
+  featured: true
+},
   {
     type: 'youtube',
     src: 'https://www.youtube.com/embed/VHFKR3NoPo4',
@@ -219,26 +239,51 @@ function renderMedia() {
   const root = document.getElementById('mediaGrid');
   if (!root) return;
 
-  const sorted = [...media].sort((a, b) => (b.featured === true) - (a.featured === true));
+  // Detect if we are on the homepage (works locally and when deployed)
+  const path = window.location.pathname.toLowerCase();
+  const isIndexPage =
+    path.endsWith('index.html') ||
+    path === '/' ||
+    path === '/home' ||
+    path.includes('annabellefasuba.co.uk') && (path === '/' || path.endsWith('index.html'));
 
+  // Sort so featured videos appear first
+  let sorted = [...media].sort((a, b) => (b.featured === true) - (a.featured === true));
+
+  // On the homepage: show a random subset (up to 3 total, always include featured)
+  if (isIndexPage) {
+    const featured = sorted.filter(m => m.featured);
+    const others = sorted.filter(m => !m.featured);
+
+    // Shuffle the others
+    for (let i = others.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [others[i], others[j]] = [others[j], others[i]];
+    }
+
+    // Limit homepage to 3 total videos
+    const randomOthers = others.slice(0, 3 - featured.length);
+    sorted = [...featured, ...randomOthers];
+  }
+
+  // Debug (optional)
+  console.log('Is Index Page?', isIndexPage, 'Videos rendered:', sorted.length);
+
+  // Render each selected video
   sorted.forEach(m => {
     const badge = m.featured ? `<div class="media-badge">National Record</div>` : '';
-    let frameHtml = '';
+    let frameHtml;
 
     if (m.type === 'youtube') {
       let embedUrl = m.src;
-
-      // Normalise any YouTube link
       if (m.src.includes('youtu.be/')) {
-        embedUrl = 'https://www.youtube.com/embed/' + m.src.split('youtu.be/')[1];
+        embedUrl = 'https://www.youtube-nocookie.com/embed/' + m.src.split('youtu.be/')[1];
       } else if (m.src.includes('watch?v=')) {
-        embedUrl = 'https://www.youtube.com/embed/' + m.src.split('watch?v=')[1];
-      } else if (m.src.includes('youtube-nocookie.com')) {
-        embedUrl = m.src.replace('youtube-nocookie.com', 'youtube.com');
+        embedUrl = 'https://www.youtube-nocookie.com/embed/' + m.src.split('watch?v=')[1];
       }
 
       frameHtml = `
-        <div class="media-frame">
+        <div class="media-frame fade-in">
           ${badge}
           <iframe
             width="560"
@@ -248,17 +293,16 @@ function renderMedia() {
             frameborder="0"
             loading="lazy"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
+            allowfullscreen
+            onerror="this.parentNode.innerHTML = '<div class=\\'fallback\\'><p><strong>${m.title}</strong></p><p>${m.meta}</p><a href=${embedUrl.replace('embed/', 'watch?v=')} target=_blank class=\\'btn btn-primary\\'>Watch on YouTube</a></div>';">
           </iframe>
-        </div>
-      `;
+        </div>`;
     } else {
       frameHtml = `
-        <div class="media-frame">
+        <div class="media-frame fade-in">
           ${badge}
           <video controls preload="metadata" src="${m.src}" loading="lazy"></video>
-        </div>
-      `;
+        </div>`;
     }
 
     root.appendChild(el(`
@@ -268,9 +312,18 @@ function renderMedia() {
           <div class="card-title">${m.title}</div>
           <div class="card-meta">${m.meta || ''}</div>
         </div>
-      </article>
-    `));
+      </article>`));
   });
+
+  // Add "View Full Gallery" button on homepage only
+  if (isIndexPage) {
+    const btn = el(`
+      <div class="center" style="margin-top: 20px;">
+        <a href="media.html" class="btn btn-primary">🎥 View Full Gallery</a>
+      </div>
+    `);
+    root.parentNode.appendChild(btn);
+  }
 }
 
 // =========================

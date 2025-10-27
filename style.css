@@ -49,7 +49,27 @@ main {
 .site-footer {
   margin-top: auto;
 }
+/* Ranking chips – subtle gold style */
+.chip[href*="powerof10"],
+.chip[href*="european-athletics"],
+.chip[href*="worldathletics"] {
+  background: linear-gradient(90deg, #ffd700, #f7c600);
+  color: #111;
+  font-weight: 600;
+  border: none;
+  box-shadow: 0 2px 6px rgba(255, 215, 0, 0.3);
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  padding: 0.4em 0.9em;
+}
 
+.chip[href*="powerof10"]:hover,
+.chip[href*="european-athletics"]:hover,
+.chip[href*="worldathletics"]:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+  box-shadow: 0 4px 10px rgba(255, 215, 0, 0.4);
+}
   
   /* Layout */
   .container{width:min(1100px,92%);margin-inline:auto}
