@@ -27,6 +27,9 @@ html, body {
 main {
   flex: 1;
 }
+/* W3C validation fix for Font Awesome */
+.fa-rotate-by { transform: rotate(0deg); }
+
 
 /* =========================
    Video Embed Styles
