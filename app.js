@@ -10,6 +10,18 @@ function el(html) {
   t.innerHTML = html.trim();
   return t.content.firstElementChild;
 }
+function sharePage(customTitle) {
+  if (navigator.share) {
+    navigator.share({
+      title: customTitle || document.title,
+      text: 'Check out Annabelle Fasuba’s official website',
+      url: window.location.href
+    }).catch(err => console.log('Share cancelled', err));
+  } else {
+    navigator.clipboard.writeText(window.location.href);
+    alert('Link copied to clipboard');
+  }
+}
 
 // =========================
 // DATA
@@ -101,8 +113,11 @@ const records = [
 // Schedule
 const schedule = [
   { date: '28 Dec 2025', name: "Sutcliffe Indoor 60's", venue: 'Eltham' },
-  { date: '10 Jan 2026', name: "SEAA Championships 60M", venue: 'Lee Valley' }
+  { date: '10 Jan 2026', name: 'SEAA Championships 60m', venue: 'Lee Valley' },
+  { date: '24 Jan 2026', name: 'London Indoor Games Age Groups 2026', venue: 'Lee Valley, Edmonton' },
+  { date: '07 Feb 2026', name: 'England Athletics U15/U17/U20 Indoor Championships', venue: 'Sheffield' }
 ];
+
 
 // Media
 const media = [
@@ -229,6 +244,12 @@ function renderSchedule() {
           <div class="muted" style="text-transform:uppercase;letter-spacing:.12em;font-size:.75rem;">${e.date}</div>
           <div class="card-title mt">${e.name}</div>
           <div class="card-meta">${e.venue}</div>
+
+           <button class="btn btn-sm mt-sm"
+            onclick="sharePage('${e.name} – ${e.date}')">
+            data-title="${e.name} – ${e.date}"
+              🔗 Share
+            </button>
         </div>
       </article>
     `));
@@ -265,9 +286,6 @@ function renderMedia() {
     const randomOthers = others.slice(0, 3 - featured.length);
     sorted = [...featured, ...randomOthers];
   }
-
-  // Debug (optional)
-  console.log('Is Index Page?', isIndexPage, 'Videos rendered:', sorted.length);
 
   // Render each selected video
   sorted.forEach(m => {
@@ -311,6 +329,10 @@ function renderMedia() {
         <div class="card-body">
           <div class="card-title">${m.title}</div>
           <div class="card-meta">${m.meta || ''}</div>
+          <button class="btn btn-sm mt-sm btn-share"
+           onclick="sharePage('${m.title}')">
+            🔗 Share
+            </button>
         </div>
       </article>`));
   });

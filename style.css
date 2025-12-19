@@ -27,9 +27,6 @@ html, body {
 main {
   flex: 1;
 }
-/* W3C validation fix for Font Awesome */
-.fa-rotate-by { transform: rotate(0deg); }
-
 
 /* =========================
    Video Embed Styles
@@ -73,6 +70,14 @@ main {
   filter: brightness(1.1);
   box-shadow: 0 4px 10px rgba(255, 215, 0, 0.4);
 }
+.btn-share {
+  opacity: 0.85;
+  font-size: 0.85rem;
+}
+.btn-share:hover {
+  opacity: 1;
+}
+
   
   /* Layout */
   .container{width:min(1100px,92%);margin-inline:auto}
@@ -149,6 +154,17 @@ main {
   
   /* Footer */
   .site-footer{border-top:1px solid var(--border);padding:26px 0;font-size:.85rem;color:var(--muted)}
+  .site-credit {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .codebilt-logo {
+    height: 40px;
+    width: auto;
+    vertical-align: middle;
+  }
   
   /* Forms */
   .form{display:grid;gap:12px}
