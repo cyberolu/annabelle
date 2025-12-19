@@ -245,11 +245,13 @@ function renderSchedule() {
           <div class="card-title mt">${e.name}</div>
           <div class="card-meta">${e.venue}</div>
 
-           <button class="btn btn-sm mt-sm"
-            onclick="sharePage('${e.name} – ${e.date}')">
-            data-title="${e.name} – ${e.date}"
-              🔗 Share
-            </button>
+          <button
+           class="btn btn-sm mt-sm btn-share"
+           data-title="${e.name} – ${e.date}"
+           onclick="sharePage(this.dataset.title)">
+           🔗 Share
+          </button>
+
         </div>
       </article>
     `));
