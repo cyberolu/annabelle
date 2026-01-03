@@ -74,7 +74,7 @@ const achievements = [
 
 // Personal Bests
 const pbs = [
-  { event: '60m (Indoor)', time: '7.53', note: 'Sheffield • England Athletics U15/U17/U20 Indoor Championships • 8 Feb 2025' },
+  { event: '60m (Indoor)', time: '7.44', note: 'Eltham • Sutcliffe Open indoors • 28 Dec 2025' },
   { event: '100m', time: '11.51', note: 'Lee Valley • Be Fit Today Track Academy • 30 Aug 2025' },
   { event: '200m', time: '23.72', note: 'Birmingham • ESAA English Schools Championships • 12 Jul 2025' }
 ];
@@ -84,7 +84,8 @@ const records = [
   {
     category: 'Club Records (2025)',
     items: [
-      { title: '60m (Indoor)', detail: '7.53s • U15, U17, U20 • 2025' },
+      { title: '60m (Indoor)', detail: '7.53s • U15 • 2025' },
+      { title: '60m (Indoor)', detail: '7.44s • U17, U20 • 2025' },
       { title: '100m', detail: '11.51s • U15, U17, U20 • 2025' },
       { title: '200m', detail: '23.72s • U15, U17, U20 • 2025' },
       { title: '300m', detail: '40.88s • U15 • 2025' },
