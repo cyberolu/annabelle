@@ -49,6 +49,7 @@ const achievements = [
       { title: "60m Indoor – SEAA Indoor U13/U15/U17 Championships", detail: "🥇 1st Place – 7.58s – Lee Valley – 11 Jan 2025" },
       { title: "60m Indoor – Welsh Athletics Junior Open Day 2", detail: "🥇 1st Place – 7.77s – Cardiff – 5 Jan 2025" },
       { title: "60m Indoor – England Athletics U15/U17/U20 Heats & Semis", detail: "🥇 1st Place – 7.73s & 7.76s – Sheffield – 8 Feb 2025" },
+      { title: "60m Indoor – Sutclif Indoor", detail: "🥇 1st Place – 7.54s – Eltham – 28 Dec 2025" },
       { title: "100m – Be Fit Today Track Academy", detail: "🥇 1st Place – 11.51s – Lee Valley – 30 Aug 2025" },
       { title: "100m – Yeovil Spring Open", detail: "🥇 1st Place – 11.60s – Yeovil – 21 Apr 2025" },
       { title: "100m – South West Athletics League", detail: "🥇 1st Place – 11.72s – Exeter – 7 Sep 2025" },
@@ -69,12 +70,19 @@ const achievements = [
       { title: "UK #1 U15 (100m & 200m)", detail: "🏅 Ranked #1 in 2025 Season" },
       { title: "4x100m Mixed Relay – National Record", detail: "👥 Member of 1st Place Team – 45.98s – 2025" }
     ]
+  },
+{
+    year: '2026',
+    records: [
+      { title: "60m Indoor – SEAA Indoor U13/U15/U17 Championships", detail: "🥇 1st Place – 7.51s – Lee Valley – 11 Jan 2026" },
+      { title: "60m Indoor – London Indoor Games age group 2026", detail: "🥇 1st Place – 7.37s – Lee Valley – 24 Jan 2026" },
+    ]
   }
 ];
 
 // Personal Bests
 const pbs = [
-  { event: '60m (Indoor)', time: '7.44', note: 'Eltham • Sutcliffe Open indoors • 28 Dec 2025' },
+  { event: '60m (Indoor)', time: '7.37', note: 'Lee Valley • London Age Group Indoor games • 24 Jan 2026' },
   { event: '100m', time: '11.51', note: 'Lee Valley • Be Fit Today Track Academy • 30 Aug 2025' },
   { event: '200m', time: '23.72', note: 'Birmingham • ESAA English Schools Championships • 12 Jul 2025' }
 ];
@@ -85,7 +93,7 @@ const records = [
     category: 'Club Records (2025)',
     items: [
       { title: '60m (Indoor)', detail: '7.53s • U15 • 2025' },
-      { title: '60m (Indoor)', detail: '7.44s • U17, U20 • 2025' },
+      { title: '60m (Indoor)', detail: '7.37s • U17, U20 • 2026' },
       { title: '100m', detail: '11.51s • U15, U17, U20 • 2025' },
       { title: '200m', detail: '23.72s • U15, U17, U20 • 2025' },
       { title: '300m', detail: '40.88s • U15 • 2025' },
