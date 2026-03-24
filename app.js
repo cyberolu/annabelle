@@ -76,13 +76,14 @@ const achievements = [
     records: [
       { title: "60m Indoor – SEAA Indoor U13/U15/U17 Championships", detail: "🥇 1st Place – 7.51s – Lee Valley – 11 Jan 2026" },
       { title: "60m Indoor – London Indoor Games age group 2026", detail: "🥇 1st Place – 7.37s – Lee Valley – 24 Jan 2026" },
+      { title: "60m Indoor – England Athletics U15/U17/U20 2026", detail: "🥇 1st Place – 7.36s – Sheffield – 24 Jan 2026" },
     ]
   }
 ];
 
 // Personal Bests
 const pbs = [
-  { event: '60m (Indoor)', time: '7.37', note: 'Lee Valley • London Age Group Indoor games • 24 Jan 2026' },
+  { event: '60m (Indoor)', time: '7.36', note: 'Sheffield  • England Athletics Age Group Championships• 07 Feb 2026' },
   { event: '100m', time: '11.51', note: 'Lee Valley • Be Fit Today Track Academy • 30 Aug 2025' },
   { event: '200m', time: '23.72', note: 'Birmingham • ESAA English Schools Championships • 12 Jul 2025' }
 ];
