@@ -120,12 +120,52 @@ const records = [
   }
 ];
 
-// Schedule
+// =========================
+// SCHEDULE (GROUPED BY MONTH)
+// =========================
+
 const schedule = [
-  { date: '28 Dec 2025', name: "Sutcliffe Indoor 60's", venue: 'Eltham' },
-  { date: '10 Jan 2026', name: 'SEAA Championships 60m', venue: 'Lee Valley' },
-  { date: '24 Jan 2026', name: 'London Indoor Games Age Groups 2026', venue: 'Lee Valley, Edmonton' },
-  { date: '07 Feb 2026', name: 'England Athletics U15/U17/U20 Indoor Championships', venue: 'Sheffield' }
+  {
+    month: 'April 2026',
+    events: [
+      { date: '05 Apr', name: 'City of Plymouth AC Spring Meet (300m & Long Jump)', venue: 'Plymouth' },
+      { date: '19 Apr', name: 'Ken Trickey Memorial Open (100m & 200m)', venue: 'Exeter' }
+    ]
+  },
+
+  {
+    month: 'May 2026',
+    events: [
+      { date: '03 May', name: 'Track Meet (100m & 200m)', venue: 'TBC' },
+      { date: '10 May', name: 'Devon County Championships (Jumps TBC)', venue: 'Exeter Arena' },
+      { date: '17 May', name: 'Open Meet (100m & 200m TBC)', venue: 'Loughborough or Lee Valley' }
+    ]
+  },
+
+  {
+    month: 'June 2026',
+    events: [
+      { date: 'TBC', name: 'Plymouth Schools Championships', venue: 'Plymouth' },
+      { date: '13 Jun', name: 'Devon Schools Championships', venue: 'Exeter Arena' },
+      { date: '20 Jun', name: 'South West Schools Championships', venue: 'Exeter Arena' }
+    ]
+  },
+
+  {
+    month: 'July 2026',
+    events: [
+      { date: '10–11 Jul', name: 'English Schools Championships', venue: 'TBC' },
+      { date: '24–26 Jul', name: 'UK National Championships', venue: 'TBC' }
+    ]
+  },
+
+  {
+    month: 'August 2026',
+    events: [
+      { date: '23 Aug', name: 'Relay Event (TBC)', venue: 'TBC' },
+      { date: '29 Aug', name: 'Be Fit Today Track Academy', venue: 'Lee Valley' }
+    ]
+  }
 ];
 
 
@@ -247,24 +287,41 @@ function renderSchedule() {
   const root = document.getElementById('scheduleGrid');
   if (!root) return;
 
-  schedule.forEach(e => {
-    root.appendChild(el(`
-      <article class="card-item">
+  schedule.forEach(section => {
+
+    // Create month block
+    const block = el(`
+      <div class="card-item">
         <div class="card-body">
-          <div class="muted" style="text-transform:uppercase;letter-spacing:.12em;font-size:.75rem;">${e.date}</div>
+          <div class="card-title" style="font-size:1.2rem;font-weight:800;margin-bottom:12px;">
+            ${section.month}
+          </div>
+        </div>
+      </div>
+    `);
+
+    // Add events inside the month
+    section.events.forEach(e => {
+      block.querySelector('.card-body').appendChild(el(`
+        <div style="margin-bottom:12px;">
+          <div class="muted" style="text-transform:uppercase;letter-spacing:.12em;font-size:.75rem;">
+            ${e.date}
+          </div>
+
           <div class="card-title mt">${e.name}</div>
           <div class="card-meta">${e.venue}</div>
 
           <button
-           class="btn btn-sm mt-sm btn-share"
-           data-title="${e.name} – ${e.date}"
-           onclick="sharePage(this.dataset.title)">
-           🔗 Share
+            class="btn btn-sm mt-sm btn-share"
+            data-title="${e.name} – ${e.date}"
+            onclick="sharePage(this.dataset.title)">
+            🔗 Share
           </button>
-
         </div>
-      </article>
-    `));
+      `));
+    });
+
+    root.appendChild(block);
   });
 }
 
