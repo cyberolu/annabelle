@@ -78,7 +78,83 @@ main {
   opacity: 1;
 }
 
-  
+.announcement-thumb {
+  width: 100%;
+  max-width: 380px;   /* 🔥 perfect size */
+  height: auto;
+  object-fit: contain;  /* keeps full image */
+  border-radius: 14px;
+  margin: 15px 0;
+  cursor: pointer;
+}
+.announcement-preview {
+  text-align: center;
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;  /* aligns text nicely */
+}
+.announcement-preview p {
+  flex: 1;
+  line-height: 1.4;
+}
+/* clickable card */
+.announcement-item {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.announcement-item:hover {
+  transform: translateY(-3px);
+}
+
+
+/* hidden content */
+.announcement-content {
+  display: none;
+  margin-top: 15px;
+}
+
+/* show when active */
+.announcement-item.active .announcement-content {
+  display: block;
+}
+/* Announcement styles */
+
+.announcement-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.announcement-arrow {
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.announcement-item.active .announcement-arrow {
+  transform: rotate(45deg);
+}
+
+
+.announcement-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.announcement-item.active .announcement-content {
+  max-height: 1000px;
+  margin-top: 15px;
+}
+
+.announcement-item {
+  transition: transform 0.2s ease;
+}
+
+.announcement-item:hover {
+  transform: translateY(-3px);
+}
   /* Layout */
   .container{width:min(1100px,92%);margin-inline:auto}
   .row{display:flex;gap:12px}

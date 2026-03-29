@@ -359,6 +359,21 @@ function renderMedia() {
     root.parentNode.appendChild(btn);
   }
 }
+// Announcement toggle
+function toggleAnnouncement(header) {
+  const card = header.closest('.announcement-item');
+
+  // Close others
+  document.querySelectorAll('.announcement-item').forEach(item => {
+    if (item !== card) {
+      item.classList.remove('active');
+    }
+  });
+
+  // Toggle current
+  card.classList.toggle('active');
+}
+
 
 // =========================
 // NAV + INIT
@@ -404,3 +419,4 @@ function boot() {
 document.readyState === 'loading'
   ? document.addEventListener('DOMContentLoaded', boot)
   : boot();
+ 
