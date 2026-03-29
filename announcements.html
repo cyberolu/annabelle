@@ -4,123 +4,154 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Announcements | Annabelle Fasuba</title>
+  <meta name="description" content="Latest updates, competition news, and season highlights from Annabelle Fasuba.">
+
+  <meta property="og:title" content="Outdoor Season Begins | Annabelle Fasuba">
+  <meta property="og:description" content="Annabelle opens her outdoor season with a 300m and her first ever Long Jump in Plymouth.">
+  <meta property="og:image" content="https://www.annabellefasuba.co.uk/image/ANNABELLE-STORY.jpg">
+  <meta property="og:url" content="https://www.annabellefasuba.co.uk/announcements.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Annabelle Fasuba">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Outdoor Season Begins | Annabelle Fasuba">
+  <meta name="twitter:description" content="Annabelle opens her outdoor season with a 300m and her first ever Long Jump in Plymouth.">
+  <meta name="twitter:image" content="https://www.annabellefasuba.co.uk/image/ANNABELLE-STORY.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Header / Nav -->
+  <!-- Header / Nav -->
   <header class="site-header">
     <div class="container row between center">
-      <a class="brand" href="index.html"><span class="brand-badge" aria-hidden="true">AF</span> <span>Annabelle Fasuba</span></a>
+      <a class="brand" href="index.html">
+        <span class="brand-badge" aria-hidden="true">AF</span>
+        <span>Annabelle Fasuba</span>
+      </a>
+
       <nav class="nav" aria-label="Primary">
         <a href="index.html">Home</a>
-        <a href="#about">About</a>
+        <a href="index.html#about">About</a>
         <a href="achievements.html">Achievements</a>
-        <a href="#pbs">PBs</a>
+        <a href="index.html#pbs">PBs</a>
         <a href="records.html">Records</a>
-        <a href="#schedule">Schedule</a>
+        <a href="index.html#schedule">Schedule</a>
         <a href="media.html">Media</a>
         <a href="announcements.html">Announcements</a>
-        <a href="#contact" class="btn btn-primary btn-sm">Book Enquiry</a>
+        <a href="index.html#contact" class="btn btn-primary btn-sm">Book Enquiry</a>
       </nav>
+
       <button class="nav-toggle" aria-label="Open menu" id="navToggle" aria-expanded="false" aria-controls="drawer">☰</button>
     </div>
   </header>
 
-<!-- MAIN -->
-<main class="section">
-  <div class="container">
+  <!-- Mobile drawer -->
+  <nav class="drawer" id="drawer" aria-label="Mobile">
+    <a href="index.html">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="achievements.html">Achievements</a>
+    <a href="index.html#pbs">PBs</a>
+    <a href="records.html">Records</a>
+    <a href="index.html#schedule">Schedule</a>
+    <a href="media.html">Media</a>
+    <a href="announcements.html">Announcements</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
 
-    <h1 class="center">Announcements</h1>
-    <p class="muted center maxw">
-      Latest updates, competition news, and season highlights.
-    </p>
+  <!-- MAIN -->
+  <main class="section">
+    <div class="container">
 
-    <!-- ANNOUNCEMENT -->
-    <article class="card p-lg mt announcement-item">
+      <h1 class="center">Announcements</h1>
+      <p class="muted center maxw">
+        Latest updates, competition news, and season highlights.
+      </p>
 
-      <!-- CLICK HEADER -->
-      <div class="announcement-header" onclick="toggleAnnouncement(this)">
-        <div>
-          <h2>🏁 Outdoor Season Begins</h2>
-          <p class="muted">5 April 2026 • Plymouth</p>
-        </div>
-        <span class="announcement-arrow">+</span>
-      </div>
+      <!-- ANNOUNCEMENT -->
+      <article class="card p-lg mt announcement-item">
 
-      <!-- IMAGE -->
-      <div class="announcement-preview">
-        <img src="image/ANNABELLE-STORY.jpg" 
-             class="announcement-thumb"
-             onclick="event.stopPropagation(); openImage(this.src)">
-      
-        <p class="muted">
-          Annabelle opens her outdoor season with a 300m and her first ever Long Jump...
-        </p>
-      </div>
-
-      <!-- FULL STORY -->
-      <div class="announcement-content">
-
-        <h3>Season Overview</h3>
-        <p>
-          Annabelle Fasuba will officially open her outdoor season on 5th April in Plymouth. While she won’t be competing in her main sprint events on this occasion, she will take on the 300m and step into new territory with her first ever Long Jump competition.
-        </p>
-
-        <p>
-          This early-season outing is all about exploration and preparation. It provides a valuable opportunity to shake off any early nerves, build confidence, and continue developing the technical work she has been refining during the indoor season.
-        </p>
-
-        <h3>Return to Sprint Events</h3>
-        <p>
-          Two weeks later, Annabelle will return to her core events, competing in the 100m and 200m at the Ken Trickey Memorial Open in Exeter. This will mark the true start of her sprint campaign for the season.
-        </p>
-
-        <h3>Focus for the Season</h3>
-        <p>
-          While there is plenty of excitement around her return, the focus remains clear. Manage early-season jitters, build on strong indoor performances, and translate training into competitive execution.
-        </p>
-
-        <p><strong>The journey continues.</strong></p>
-
-        <!-- SHARE BUTTON -->
-        <div class="mt">
-          <button class="btn btn-sm"
-            onclick="event.stopPropagation(); sharePage('Outdoor Season Begins')">
-            🔗 Share
-          </button>
+        <!-- CLICK HEADER -->
+        <div class="announcement-header" onclick="toggleAnnouncement(this)">
+          <div>
+            <h2>🏁 Outdoor Season Begins</h2>
+            <p class="muted">5 April 2026 • Plymouth</p>
+          </div>
+          <span class="announcement-arrow">+</span>
         </div>
 
-      </div>
+        <!-- IMAGE -->
+        <div class="announcement-preview">
+          <img
+            src="image/ANNABELLE-STORY.jpg"
+            class="announcement-thumb"
+            alt="Annabelle Fasuba preparing for the outdoor season"
+            onclick="event.stopPropagation(); openImage(this.src)"
+          >
 
-    </article>
+          <p class="muted">
+            Annabelle opens her outdoor season with a 300m and her first ever Long Jump...
+          </p>
+        </div>
 
-  </div>
-</main>
+        <!-- FULL STORY -->
+        <div class="announcement-content">
 
-<!-- IMAGE POPUP -->
-<div id="imageModal" class="image-modal" onclick="closeImage()">
-  <img id="modalImg">
-</div>
+          <h3>Season Overview</h3>
+          <p>
+            Annabelle Fasuba will officially open her outdoor season on 5th April in Plymouth. While she won’t be competing in her main sprint events on this occasion, she will take on the 300m and step into new territory with her first ever Long Jump competition.
+          </p>
 
-<!-- FOOTER -->
-<footer class="site-footer">
-  <div class="container row between center">
-    <div class="muted">© <span id="year">2025</span> Annabelle Fasuba. All rights reserved.</div>
-    <div class="muted site-credit">
-      Site by Olusoji Fasuba
-      <a href="https://www.codebuiltsites.com" target="_blank" rel="noopener">
-        <img src="image/logo.png" alt="Codebilt Sites" class="codebilt-logo">
-      </a>
+          <p>
+            This early-season outing is all about exploration and preparation. It provides a valuable opportunity to shake off any early nerves, build confidence, and continue developing the technical work she has been refining during the indoor season.
+          </p>
+
+          <h3>Return to Sprint Events</h3>
+          <p>
+            Two weeks later, Annabelle will return to her core events, competing in the 100m and 200m at the Ken Trickey Memorial Open in Exeter. This will mark the true start of her sprint campaign for the season.
+          </p>
+
+          <h3>Focus for the Season</h3>
+          <p>
+            While there is plenty of excitement around her return, the focus remains clear. Manage early-season jitters, build on strong indoor performances, and translate training into competitive execution.
+          </p>
+
+          <p><strong>The journey continues.</strong></p>
+
+          <!-- SHARE BUTTON -->
+          <div class="mt">
+            <button class="btn btn-sm" onclick="event.stopPropagation(); sharePage('Outdoor Season Begins')">
+              🔗 Share
+            </button>
+          </div>
+
+        </div>
+
+      </article>
+
     </div>
+  </main>
+
+  <!-- IMAGE POPUP -->
+  <div id="imageModal" class="image-modal" onclick="closeImage()">
+    <img id="modalImg" alt="Expanded announcement image">
   </div>
-</footer>
 
-<script src="app.js" defer></script>
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container row between center">
+      <div class="muted">© <span id="year">2025</span> Annabelle Fasuba. All rights reserved.</div>
+      <div class="muted site-credit">
+        Site by Olusoji Fasuba
+        <a href="https://www.codebuiltsites.com" target="_blank" rel="noopener">
+          <img src="image/logo.png" alt="Codebilt Sites" class="codebilt-logo">
+        </a>
+      </div>
+    </div>
+  </footer>
 
+  <script src="app.js" defer></script>
 </body>
 </html>
